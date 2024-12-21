@@ -3,9 +3,8 @@ namespace AirlinesSystem.Interfaces;
 
 public interface ICrewMemberService
 {
-    void AddCrewMember(ICrewMember crewMember);
-    void UpdateCrewMember(ICrewMember crewMember);
-    void RemoveCrewMember(string name);
-    ICrewMember GetCrewMember(string name);
-    List<ICrewMember> GetAllCrewMembers();
+    Task<IEnumerable<ICrewMember>> GetAllCrewMembersAsync();
+    Task<ICrewMember> GetCrewMemberByIdAsync(int id);
+    Task AddCrewMemberAsync(ICrewMember crewMember);
+    Task RemoveCrewMemberAsync(int id);
 }

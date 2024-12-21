@@ -2,12 +2,12 @@ namespace AirlinesSystem.Interfaces;
 
 public interface IRoute
 {
-    string RouteCode { get; set; }
-    string StartPoint { get; set; }
+    int RouteId { get; set; }
+    string Departure { get; set; }
     DateTime DepartureTime { get; set; }
-    string EndPoint { get; set; }
+    string Arrival { get; set; }
     DateTime ArrivalTime { get; set; }
-    List<string> DaysOfDeparture { get; set; }
     string AircraftType { get; set; }
-    List<string>? IntermediateStops { get; set; }
+    IEnumerable<string> Stopovers { get; set; }
+    List<DayOfWeek> DaysOfDeparture { get; set; }
 }

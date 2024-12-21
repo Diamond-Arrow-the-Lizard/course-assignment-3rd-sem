@@ -3,9 +3,8 @@ namespace AirlinesSystem.Interfaces;
 
 public interface IRouteService
 {
-    void AddRoute(IRoute route);
-    void UpdateRoute(IRoute route);
-    void RemoveRoute(string routeCode);
-    IRoute GetRoute(string routeCode);
-    List<IRoute> GetAllRoutes();
+    Task<List<IRoute>> GetAllRoutesAsync();  // Получить все маршруты
+    Task AddRouteAsync(IRoute route);        // Добавить новый маршрут
+    Task SaveRoutesAsync(string filePath);  // Сохранить данные о маршрутах в файл
+    Task LoadRoutesAsync(string filePath);  // Загрузить данные о маршрутах из файла
 }

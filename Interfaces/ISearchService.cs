@@ -3,6 +3,7 @@ namespace AirlinesSystem.Interfaces;
 
 public interface ISearchService
 {
-    List<IRoute> SearchRoutes(string startPoint, string endPoint, DateTime date);
-    List<ITicket> SearchTickets(string passengerName, DateTime? date = null);
+    Task<IEnumerable<IAircraft>> SearchAircraftsAsync(string query);
+    Task<IEnumerable<IRoute>> SearchRoutesAsync(string query);
+    Task<IEnumerable<ITicket>> SearchTicketsAsync(string query);
 }

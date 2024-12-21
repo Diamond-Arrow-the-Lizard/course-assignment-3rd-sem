@@ -4,18 +4,8 @@ namespace AirlinesSystem.Modules;
 
 public class CrewMember : ICrewMember
 {
-    private string name = "";
-    private string role = "";
-
-    public string Name
-    {
-        get => name;
-        set => name = value;
-    }
-
-    public string Role
-    {
-        get => role;
-        set => role = value;
-    }
+    public int Id { get; set; }
+    public string Name { get; set; } = "Undefined";
+    public string Position { get; set; } = "Undefined";
+    public DateTime DateOfBirth { get; set; }
 }

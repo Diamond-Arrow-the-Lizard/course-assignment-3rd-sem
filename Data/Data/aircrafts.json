@@ -1,0 +1,4 @@
+[
+    { "Type": "Boeing 747", "Id": 12345, "YearOfManufacture": 2010, "LastMaintenance": "2023-12-01" },
+    { "Type": "Airbus A320", "Id": 54321, "YearOfManufacture": 2015, "LastMaintenance": "2023-11-01" }
+]

@@ -12,36 +12,36 @@ public class RouteService : IRouteService
 
     public async Task<IEnumerable<IRoute>> GetAllRoutesAsync()
     {
-        var json = await File.ReadAllTextAsync("Routes.json");
+        var json = await File.ReadAllTextAsync("routes.json");
         return await _jsonHelper.DeserializeAsync<List<IRoute>>(json);
     }
 
     public async Task<IRoute> GetRouteByIdAsync(int id)
     {
-        var json = await File.ReadAllTextAsync("Routes.json");
+        var json = await File.ReadAllTextAsync("routes.json");
         var Routes = await _jsonHelper.DeserializeAsync<List<IRoute>>(json);
         return Routes.FirstOrDefault(a => a.RouteId == id) ?? throw new Exception("Crew member wasn't found");
     }
 
     public async Task AddRouteAsync(IRoute Route)
     {
-        var json = await File.ReadAllTextAsync("Routes.json");
+        var json = await File.ReadAllTextAsync("routes.json");
         var Routes = await _jsonHelper.DeserializeAsync<List<IRoute>>(json);
         Routes.Add(Route);
         var updatedJson = await _jsonHelper.SerializeAsync(Routes);
-        await File.WriteAllTextAsync("Routes.json", updatedJson);
+        await File.WriteAllTextAsync("routes.json", updatedJson);
     }
 
     public async Task RemoveRouteAsync(int id)
     {
-        var json = await File.ReadAllTextAsync("Routes.json");
+        var json = await File.ReadAllTextAsync("routes.json");
         var Routes = await _jsonHelper.DeserializeAsync<List<IRoute>>(json);
         var Route = Routes.FirstOrDefault(a => a.RouteId == id);
         if (Route != null)
         {
             Routes.Remove(Route);
             var updatedJson = await _jsonHelper.SerializeAsync(Routes);
-            await File.WriteAllTextAsync("Routes.json", updatedJson);
+            await File.WriteAllTextAsync("routes.json", updatedJson);
         }
     }
 }

@@ -1,4 +1,26 @@
 [
-    { "Type": "Boeing 747", "Id": 12345, "YearOfManufacture": 2010, "LastMaintenance": "2023-12-01" },
-    { "Type": "Airbus A320", "Id": 54321, "YearOfManufacture": 2015, "LastMaintenance": "2023-11-01" }
+    {
+        "Id": 12346,
+        "Type": "Boeing 747",
+        "RegistrationNumber": "1",
+        "YearOfManufacture": "2010-01-01T00:00:00",
+        "LastMaintenance": "2020-01-01T00:00:00",
+        "PhotoPath": "None"
+    },
+    {
+        "Id": 12347,
+        "Type": "Boeing 747",
+        "RegistrationNumber": "1",
+        "YearOfManufacture": "2010-01-01T00:00:00",
+        "LastMaintenance": "2020-01-01T00:00:00",
+        "PhotoPath": "None"
+    },
+    {
+        "Id": 12348,
+        "Type": "Boeing 747",
+        "RegistrationNumber": "1",
+        "YearOfManufacture": "2010-01-01T00:00:00",
+        "LastMaintenance": "2020-01-01T00:00:00",
+        "PhotoPath": "None"
+    }
 ]

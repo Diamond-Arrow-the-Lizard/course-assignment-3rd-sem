@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace App;
+namespace AirlinesSystem.AvaloniaApp;
 
 public partial class MainWindow : Window
 {

@@ -9,7 +9,7 @@ public class CrewMemberService : ICrewMemberService
     public CrewMemberService(IJsonHelper jsonHelper)
     {
         _jsonHelper = jsonHelper ?? throw new ArgumentNullException(nameof(jsonHelper));
-        _dataPath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Data", "CrewMembers.json");
+        _dataPath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Data", "crewMembers.json");
         //Console.WriteLine($"Path to CrewMember data file: {_dataPath}");
     }
 

@@ -9,7 +9,7 @@ public class FlightCrewService : IFlightCrewService
     public FlightCrewService(IJsonHelper jsonHelper)
     {
         _jsonHelper = jsonHelper ?? throw new ArgumentNullException(nameof(jsonHelper));
-        _dataPath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Data", "FlightCrews.json");
+        _dataPath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Data", "flightCrews.json");
         //Console.WriteLine($"Path to FlightCrew data file: {_dataPath}");
     }
 

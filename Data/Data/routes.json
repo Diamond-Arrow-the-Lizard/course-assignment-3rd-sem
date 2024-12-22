@@ -1,0 +1,4 @@
+[
+    { "RouteId": 123, "Departure": "New York", "Arrival": "London", "DaysOfFlight": ["Monday", "Wednesday"] },
+    { "Code": 456, "Departure": "Paris", "Arrival": "Berlin", "DaysOfFlight": ["Tuesday", "Friday"] }
+]

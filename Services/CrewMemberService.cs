@@ -4,41 +4,48 @@ namespace AirlinesSystem.Services;
 public class CrewMemberService : ICrewMemberService
 {
     private readonly IJsonHelper _jsonHelper;
+    private readonly string _dataPath;
+
     public CrewMemberService(IJsonHelper jsonHelper)
     {
-        _jsonHelper = jsonHelper;
+        _jsonHelper = jsonHelper ?? throw new ArgumentNullException(nameof(jsonHelper));
+        _dataPath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Data", "crewMembers.json");
+        //Console.WriteLine($"Path to CrewMember data file: {_dataPath}");
     }
+
     public async Task<IEnumerable<ICrewMember>> GetAllCrewMembersAsync()
     {
-        var json = await File.ReadAllTextAsync("crewMember.json");
-        return await _jsonHelper.DeserializeAsync<List<ICrewMember>>(json);
+        var json = await File.ReadAllTextAsync(_dataPath);
+        return await _jsonHelper.DeserializeAsync<List<CrewMember>>(json);
     }
+
     public async Task<ICrewMember> GetCrewMemberByIdAsync(int id)
     {
-        var json = await File.ReadAllTextAsync("crewMember.json");
-        var members = await _jsonHelper.DeserializeAsync<List<ICrewMember>>(json);
-        return members.FirstOrDefault(x => x.Id == id) ?? throw new Exception("Crew member wasn't found"); // Такой x, чей ID соот. искомому
+        var json = await File.ReadAllTextAsync(_dataPath);
+        var CrewMembers = await _jsonHelper.DeserializeAsync<List<CrewMember>>(json);
+        return CrewMembers.FirstOrDefault(a => a.Id == id) ?? throw new Exception("Crew member wasn't found");
     }
-    public async Task AddCrewMemberAsync(ICrewMember crewMember)
-    {
-        var json = await File.ReadAllTextAsync("crewMember.json");
-        var crewMembers = await _jsonHelper.DeserializeAsync<List<ICrewMember>>(json);
-        crewMembers.Add(crewMember);
-        var updatedJson = await _jsonHelper.SerializeAsync(crewMembers);
-        await File.WriteAllTextAsync("crewMember.json", updatedJson);
 
+    public async Task AddCrewMemberAsync(ICrewMember CrewMember)
+    {
+        var json = await File.ReadAllTextAsync(_dataPath);
+        var CrewMembers = await _jsonHelper.DeserializeAsync<List<CrewMember>>(json);
+        if (CrewMember is CrewMember a)
+            CrewMembers.Add(a);
+        var updatedJson = await _jsonHelper.SerializeAsync(CrewMembers);
+        await File.WriteAllTextAsync(_dataPath, updatedJson);
     }
+
     public async Task RemoveCrewMemberAsync(int id)
     {
-        var json = await File.ReadAllTextAsync("crewMember.json");
-        var members = await _jsonHelper.DeserializeAsync<List<ICrewMember>>(json);
-        var crewMember = members.FirstOrDefault(x => x.Id == id); // Такой x, чей ID соот. искомому
-        if (crewMember != null)
+        var json = await File.ReadAllTextAsync(_dataPath);
+        var CrewMembers = await _jsonHelper.DeserializeAsync<List<CrewMember>>(json);
+        var CrewMember = CrewMembers.FirstOrDefault(a => a.Id == id);
+        if (CrewMember != null)
         {
-            members.Remove(crewMember);
-            var updatedJson = await _jsonHelper.SerializeAsync(members);
-            await File.WriteAllTextAsync("crewMember.json", updatedJson);
+            CrewMembers.Remove(CrewMember);
+            var updatedJson = await _jsonHelper.SerializeAsync(CrewMembers);
+            await File.WriteAllTextAsync(_dataPath, updatedJson);
         }
-
     }
 }

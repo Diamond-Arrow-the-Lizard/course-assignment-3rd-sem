@@ -2,6 +2,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
+    <ProjectReference Include="..\Data\Data.csproj" />
+    <ProjectReference Include="..\Modules\Modules.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

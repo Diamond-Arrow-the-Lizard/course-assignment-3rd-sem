@@ -1,4 +1,5 @@
 ﻿
+using System.Text.Json.Serialization;
 using AirlinesSystem.Interfaces;
 namespace AirlinesSystem.Modules;
 
@@ -9,7 +10,23 @@ public class Route : IRoute
     public DateTime DepartureTime { get; set; }
     public string Arrival { get; set; } = "Undefined";
     public DateTime ArrivalTime { get; set; }
-    public string AircraftType { get; set; } = "Undefined";
-    public IEnumerable<string> Stopovers { get; set; } = new List<string>();
+    public string AircraftId { get; } = "Undefined";
+    public IEnumerable<string> Stopovers { get; set; } = [];
     public List<DayOfWeek> DaysOfDeparture { get; set; } = [];
+
+    [JsonConstructor]
+    public Route(string RouteId, string Departure, DateTime DepartureTime, 
+    string Arrival, DateTime ArrivalTime, string AircraftId, 
+    IEnumerable<string> Stopovers, List<DayOfWeek> DaysOfDeparture)
+    {
+        this.RouteId = RouteId;
+        this.Departure = Departure;
+        this.DepartureTime= DepartureTime;
+        this.Arrival = Arrival;
+        this.ArrivalTime = ArrivalTime;
+        this.AircraftId = AircraftId;
+        this.Stopovers = Stopovers;
+        this.DaysOfDeparture = DaysOfDeparture;
+
+    }
 }

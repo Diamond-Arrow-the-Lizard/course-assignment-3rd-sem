@@ -23,7 +23,7 @@ public class AircraftService : IAircraftService
     {
         var json = await File.ReadAllTextAsync(_dataPath);
         var aircrafts = await _jsonHelper.DeserializeAsync<List<Aircraft>>(json);
-        return aircrafts.FirstOrDefault(a => a.AircraftId == id) ?? throw new Exception("Crew member wasn't found");
+        return aircrafts.FirstOrDefault(a => a.AircraftId == id) ?? throw new Exception("Aircraft wasn't found");
     }
 
     public async Task AddAircraftAsync(IAircraft aircraft)

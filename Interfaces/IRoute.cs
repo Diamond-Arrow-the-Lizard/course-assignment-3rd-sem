@@ -7,7 +7,7 @@ public interface IRoute
     DateTime DepartureTime { get; set; }
     string Arrival { get; set; }
     DateTime ArrivalTime { get; set; }
-    string AircraftType { get; set; }
+    string AircraftId { get; }
     IEnumerable<string> Stopovers { get; set; }
     List<DayOfWeek> DaysOfDeparture { get; set; }
 }

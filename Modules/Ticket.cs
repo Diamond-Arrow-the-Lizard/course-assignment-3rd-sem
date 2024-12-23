@@ -1,4 +1,5 @@
 ﻿
+using System.Text.Json.Serialization;
 using AirlinesSystem.Interfaces;
 namespace AirlinesSystem.Modules;
 
@@ -17,4 +18,25 @@ public class Ticket : ITicket
     public string PassportIssuer { get; set; } = "Undefined";
     public string CashierId { get; } = "Undefined";
     public string CashierName { get; set; } = "Undefined";
+
+    [JsonConstructor]
+    public Ticket(string TicketId, string FlightCrewId, string PassengerName, 
+    string SeatNumber, string Class, decimal Price, DateTime PurchaseDate, string PassengerPassportSeries, 
+    string PassengerPassportNumber, DateTime PassportIssueDate, string PassportIssuer, string CashierId, 
+    string CashierName)
+    {
+        this.TicketId = TicketId;
+        this.FlightCrewId= FlightCrewId;
+        this.PassengerName= PassengerName;
+        this.SeatNumber = SeatNumber;
+        this.Class = Class;
+        this.Price = Price;
+        this.PurchaseDate = PurchaseDate;
+        this.PassengerPassportSeries= PassengerPassportSeries;
+        this.PassengerPassportNumber = PassengerPassportNumber;
+        this.PassportIssueDate = PassportIssueDate;
+        this.PassportIssuer = PassportIssuer;
+        this.CashierId = CashierId;
+        this.CashierName = CashierName;
+    }
 }

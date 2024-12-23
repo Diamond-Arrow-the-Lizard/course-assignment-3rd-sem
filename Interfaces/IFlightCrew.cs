@@ -2,6 +2,6 @@ namespace AirlinesSystem.Interfaces;
 
 public interface IFlightCrew
 {
-    int FlightId { get; set; }
+    string FlightCrewId { get; } 
     IEnumerable<ICrewMember> CrewMembers { get; set; }
 }

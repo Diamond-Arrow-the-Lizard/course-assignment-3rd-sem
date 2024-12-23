@@ -19,11 +19,11 @@ public class AircraftService : IAircraftService
         return await _jsonHelper.DeserializeAsync<List<Aircraft>>(json);
     }
 
-    public async Task<IAircraft> GetAircraftByIdAsync(int id)
+    public async Task<IAircraft> GetAircraftByIdAsync(string id)
     {
         var json = await File.ReadAllTextAsync(_dataPath);
         var aircrafts = await _jsonHelper.DeserializeAsync<List<Aircraft>>(json);
-        return aircrafts.FirstOrDefault(a => a.Id == id) ?? throw new Exception("Crew member wasn't found");
+        return aircrafts.FirstOrDefault(a => a.AircraftId == id) ?? throw new Exception("Crew member wasn't found");
     }
 
     public async Task AddAircraftAsync(IAircraft aircraft)
@@ -36,11 +36,11 @@ public class AircraftService : IAircraftService
         await File.WriteAllTextAsync(_dataPath, updatedJson);
     }
 
-    public async Task RemoveAircraftAsync(int id)
+    public async Task RemoveAircraftAsync(string id)
     {
         var json = await File.ReadAllTextAsync(_dataPath);
         var aircrafts = await _jsonHelper.DeserializeAsync<List<Aircraft>>(json);
-        var aircraft = aircrafts.FirstOrDefault(a => a.Id == id);
+        var aircraft = aircrafts.FirstOrDefault(a => a.AircraftId == id);
         if (aircraft != null)
         {
             aircrafts.Remove(aircraft);

@@ -2,7 +2,7 @@ namespace AirlinesSystem.Interfaces;
 
 public interface IRoute
 {
-    int RouteId { get; set; }
+    string RouteId { get; } 
     string Departure { get; set; }
     DateTime DepartureTime { get; set; }
     string Arrival { get; set; }

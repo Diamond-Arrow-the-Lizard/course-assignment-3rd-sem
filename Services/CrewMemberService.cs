@@ -19,11 +19,11 @@ public class CrewMemberService : ICrewMemberService
         return await _jsonHelper.DeserializeAsync<List<CrewMember>>(json);
     }
 
-    public async Task<ICrewMember> GetCrewMemberByIdAsync(int id)
+    public async Task<ICrewMember> GetCrewMemberByIdAsync(string id)
     {
         var json = await File.ReadAllTextAsync(_dataPath);
         var CrewMembers = await _jsonHelper.DeserializeAsync<List<CrewMember>>(json);
-        return CrewMembers.FirstOrDefault(a => a.Id == id) ?? throw new Exception("Crew member wasn't found");
+        return CrewMembers.FirstOrDefault(a => a.CrewMemberId== id) ?? throw new Exception("Crew member wasn't found");
     }
 
     public async Task AddCrewMemberAsync(ICrewMember CrewMember)
@@ -36,11 +36,11 @@ public class CrewMemberService : ICrewMemberService
         await File.WriteAllTextAsync(_dataPath, updatedJson);
     }
 
-    public async Task RemoveCrewMemberAsync(int id)
+    public async Task RemoveCrewMemberAsync(string id)
     {
         var json = await File.ReadAllTextAsync(_dataPath);
         var CrewMembers = await _jsonHelper.DeserializeAsync<List<CrewMember>>(json);
-        var CrewMember = CrewMembers.FirstOrDefault(a => a.Id == id);
+        var CrewMember = CrewMembers.FirstOrDefault(a => a.CrewMemberId == id);
         if (CrewMember != null)
         {
             CrewMembers.Remove(CrewMember);

@@ -4,8 +4,8 @@ namespace AirlinesSystem.Modules;
 
 public class Ticket : ITicket
 {
-    public int TicketId { get; set; }
-    public int FlightId { get; set; }
+    public string TicketId { get; } = "Undefined";
+    public string FlightCrewId { get; } = "Undefined";
     public string PassengerName { get; set; } = "Undefined";
     public string SeatNumber { get; set; } = "Undefined";
     public string Class { get; set; } = "Undefined";
@@ -15,6 +15,6 @@ public class Ticket : ITicket
     public string PassengerPassportNumber { get; set; } = "Undefined";
     public DateTime PassportIssueDate { get; set; }
     public string PassportIssuer { get; set; } = "Undefined";
-    public int CashierId { get; set; }
+    public string CashierId { get; } = "Undefined";
     public string CashierName { get; set; } = "Undefined";
 }

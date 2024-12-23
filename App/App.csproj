@@ -19,15 +19,10 @@
       <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
 
-  <!-- Все XAML файлы из папки Views -->
-  <AvaloniaXaml Include="Views\**\*.axaml" />
+
+  <ItemGroup>
+    <ProjectReference Include="..\Services\Services.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-  <!-- Все C# файлы из папки ViewModels -->
-  <Compile Include="ViewModels\**\*.cs" />
-</ItemGroup>
 
 </Project>

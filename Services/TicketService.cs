@@ -19,7 +19,7 @@ public class TicketService : ITicketService
         return await _jsonHelper.DeserializeAsync<List<Ticket>>(json);
     }
 
-    public async Task<ITicket> GetTicketByIdAsync(int id)
+    public async Task<ITicket> GetTicketByIdAsync(string id)
     {
         var json = await File.ReadAllTextAsync(_dataPath);
         var Tickets = await _jsonHelper.DeserializeAsync<List<Ticket>>(json);
@@ -36,7 +36,7 @@ public class TicketService : ITicketService
         await File.WriteAllTextAsync(_dataPath, updatedJson);
     }
 
-    public async Task RemoveTicketAsync(int id)
+    public async Task RemoveTicketAsync(string id)
     {
         var json = await File.ReadAllTextAsync(_dataPath);
         var Tickets = await _jsonHelper.DeserializeAsync<List<Ticket>>(json);

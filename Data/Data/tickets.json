@@ -1,4 +1,4 @@
 [
-    { "PassengerName": "John Doe", "FlightId": 123, "SeatNumber": "12A", "Price": 500.0 },
-    { "PassengerName": "Jane Smith", "FlightId": 456, "SeatNumber": "10B", "Price": 300.0 }
+    { "PassengerName": "John Doe", "FlightCrewId": 123, "SeatNumber": "12A", "Price": 500.0 },
+    { "PassengerName": "Jane Smith", "FlightCrewId": 456, "SeatNumber": "10B", "Price": 300.0 }
 ]

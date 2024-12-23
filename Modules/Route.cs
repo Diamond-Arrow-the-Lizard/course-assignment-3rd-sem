@@ -4,7 +4,7 @@ namespace AirlinesSystem.Modules;
 
 public class Route : IRoute
 {
-    public int RouteId { get; set; }
+    public string RouteId { get; } = "Undefined";
     public string Departure { get; set; } = "Undefined";
     public DateTime DepartureTime { get; set; }
     public string Arrival { get; set; } = "Undefined";

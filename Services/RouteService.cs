@@ -19,7 +19,7 @@ public class RouteService : IRouteService
         return await _jsonHelper.DeserializeAsync<List<Route>>(json);
     }
 
-    public async Task<IRoute> GetRouteByIdAsync(int id)
+    public async Task<IRoute> GetRouteByIdAsync(string id)
     {
         var json = await File.ReadAllTextAsync(_dataPath);
         var Routes = await _jsonHelper.DeserializeAsync<List<Route>>(json);
@@ -36,7 +36,7 @@ public class RouteService : IRouteService
         await File.WriteAllTextAsync(_dataPath, updatedJson);
     }
 
-    public async Task RemoveRouteAsync(int id)
+    public async Task RemoveRouteAsync(string id)
     {
         var json = await File.ReadAllTextAsync(_dataPath);
         var Routes = await _jsonHelper.DeserializeAsync<List<Route>>(json);

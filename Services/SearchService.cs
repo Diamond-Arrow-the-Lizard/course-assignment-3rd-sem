@@ -44,7 +44,7 @@ public class SearchService : ISearchService
 
             // Фильтруем билеты по поисковому запросу
             return tickets.Where(t => t.PassengerName.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
-                                      t.FlightId);
+                                      t.FlightCrewId);
         */
         }
 }

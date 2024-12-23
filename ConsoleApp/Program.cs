@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using AirlinesSystem.Interfaces;
 using AirlinesSystem.Services;
 using AirlinesSystem.Utilities;
+using AirlinesSystem.Modules;
 
 public class Program
 {
@@ -40,14 +41,14 @@ public class Program
 
         var aircrafts = await aircraftService.GetAllAircraftsAsync();
         foreach (var aircraft in aircrafts)
-            Console.WriteLine(aircraft.Type + aircraft.Id);
+            Console.WriteLine(aircraft.Type + aircraft.AircraftId);
 
-        var myAircraft = await aircraftService.GetAircraftByIdAsync(12345);
-        myAircraft.Id = 12348;
+        var myAircraft = await aircraftService.GetAircraftByIdAsync("12345");
+        //var newAircraft = new Aircraft(); 
         Console.WriteLine(myAircraft.YearOfManufacture);
 
         await aircraftService.AddAircraftAsync(myAircraft);
-        await aircraftService.RemoveAircraftAsync(12345);
+        await aircraftService.RemoveAircraftAsync("12345");
     }
 
 }

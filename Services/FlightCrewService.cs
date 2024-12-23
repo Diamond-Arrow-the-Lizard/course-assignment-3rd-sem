@@ -23,7 +23,7 @@ public class FlightCrewService : IFlightCrewService
     {
         var json = await File.ReadAllTextAsync(_dataPath);
         var FlightCrews = await _jsonHelper.DeserializeAsync<List<FlightCrew>>(json);
-        return FlightCrews.FirstOrDefault(a => a.FlightCrewId == id) ?? throw new Exception("Crew member wasn't found");
+        return FlightCrews.FirstOrDefault(a => a.FlightCrewId == id) ?? throw new Exception("Flight Crew wasn't found");
     }
 
     public async Task AddFlightCrewAsync(IFlightCrew FlightCrew)

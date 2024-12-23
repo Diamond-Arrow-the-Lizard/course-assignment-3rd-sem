@@ -23,7 +23,7 @@ public class RouteService : IRouteService
     {
         var json = await File.ReadAllTextAsync(_dataPath);
         var Routes = await _jsonHelper.DeserializeAsync<List<Route>>(json);
-        return Routes.FirstOrDefault(a => a.RouteId == id) ?? throw new Exception("Crew member wasn't found");
+        return Routes.FirstOrDefault(a => a.RouteId == id) ?? throw new Exception("Route wasn't found");
     }
 
     public async Task AddRouteAsync(IRoute Route)

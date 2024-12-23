@@ -23,7 +23,7 @@ public class TicketService : ITicketService
     {
         var json = await File.ReadAllTextAsync(_dataPath);
         var Tickets = await _jsonHelper.DeserializeAsync<List<Ticket>>(json);
-        return Tickets.FirstOrDefault(a => a.TicketId == id) ?? throw new Exception("Crew member wasn't found");
+        return Tickets.FirstOrDefault(a => a.TicketId == id) ?? throw new Exception("Ticket wasn't found");
     }
 
     public async Task AddTicketAsync(ITicket Ticket)

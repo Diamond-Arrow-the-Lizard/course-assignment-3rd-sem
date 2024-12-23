@@ -43,12 +43,30 @@ public class Program
         foreach (var aircraft in aircrafts)
             Console.WriteLine(aircraft.Type + aircraft.AircraftId);
 
-        var myAircraft = await aircraftService.GetAircraftByIdAsync("12345");
-        //var newAircraft = new Aircraft(); 
-        Console.WriteLine(myAircraft.YearOfManufacture);
+        try
+        {
+            var myAircraft = await aircraftService.GetAircraftByIdAsync("12345");
 
-        await aircraftService.AddAircraftAsync(myAircraft);
-        await aircraftService.RemoveAircraftAsync("12345");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+        var newAircraft = new Aircraft
+        (
+            "12350",
+            "Boeing 747",
+            "779",
+            DateTime.Now,
+            DateTime.UtcNow,
+            "Undefined"
+        );
+
+
+        await aircraftService.AddAircraftAsync(newAircraft);
+        await aircraftService.RemoveAircraftAsync("12348");
+
     }
 
 }

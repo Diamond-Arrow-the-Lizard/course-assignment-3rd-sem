@@ -3,10 +3,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:AvaloniaApp.ViewModels"
+             xmlns:modules="using:AirlinesSystem.Modules"
              mc:Ignorable="d"
              x:Class="AvaloniaApp.Views.RouteView"
              x:DataType="vm:RouteViewModel">
 
+    <StackPanel Margin="10" Spacing="10">
+        <TextBlock Text="Available Routes" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+        
+        <ListBox ItemsSource="{Binding Routes}" SelectedItem="{Binding SelectedRoute}" Margin="10">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="modules:Route">
+                    <StackPanel>
+                        <TextBlock Text="{Binding Departure}" />
+                        <TextBlock Text="{Binding Arrival}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
-
+        <Button Content="Select Route" Command="{Binding SelectRouteCommand}" HorizontalAlignment="Center" />
+    </StackPanel>
 </UserControl>
+

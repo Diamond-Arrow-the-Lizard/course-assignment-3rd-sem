@@ -18,6 +18,16 @@ public partial class App : Application
 {
     private ServiceProvider? _serviceProvider;
 
+    public T GetService<T>() where T : notnull
+    {
+        if (_serviceProvider == null)
+        {
+            throw new InvalidOperationException("ServiceProvider is not initialized.");
+        }
+
+        return _serviceProvider.GetRequiredService<T>();
+    }
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);

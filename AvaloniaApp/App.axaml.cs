@@ -6,11 +6,18 @@ using System.Linq;
 using Avalonia.Markup.Xaml;
 using AvaloniaApp.ViewModels;
 using AvaloniaApp.Views;
+using AirlinesSystem.Utilities;
+using AirlinesSystem.Services;
+using Microsoft.Extensions.DependencyInjection;
+using AirlinesSystem.Interfaces;
+using System;
 
 namespace AvaloniaApp;
 
 public partial class App : Application
 {
+    private ServiceProvider? _serviceProvider;
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -18,14 +25,16 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
+        var serviceCollection = new ServiceCollection();
+        ConfigureServices(serviceCollection);
+        _serviceProvider = serviceCollection.BuildServiceProvider() ?? throw new NullReferenceException("Service Provider is null");
+
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 
-            // More info: https://docs.avaloniaui.net/docs/guides/development-guides/data-validation#manage-validationplugins
-            DisableAvaloniaDataAnnotationValidation();
+            // Устанавливаем DataContext для MainWindow
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainWindowViewModel(),
+                DataContext = _serviceProvider.GetRequiredService<MainWindowViewModel>()
             };
         }
 
@@ -43,5 +52,17 @@ public partial class App : Application
         {
             BindingPlugins.DataValidators.Remove(plugin);
         }
+    }
+
+    private void ConfigureServices(ServiceCollection services)
+    {
+        services.AddSingleton<IJsonHelper, JsonHelper>();
+        services.AddSingleton<IAircraftService, AircraftService>();
+        services.AddSingleton<IRouteService, RouteService>();
+        services.AddSingleton<ITicketService, TicketService>();
+        services.AddSingleton<MainWindow>();
+        services.AddSingleton<MainWindowViewModel>();
+        services.AddSingleton<TicketView>();
+        services.AddSingleton<TicketViewModel>();
     }
 }

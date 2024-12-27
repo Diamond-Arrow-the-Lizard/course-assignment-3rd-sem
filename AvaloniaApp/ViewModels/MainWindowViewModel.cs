@@ -5,8 +5,7 @@ namespace AvaloniaApp.ViewModels;
 public partial class MainWindowViewModel : ViewModelBase
 {
     public string Greeting { get; } = "Welcome to Avalonia!";
-
-    /* TODO
+   
     private readonly ITicketService _ticketService;
 
     public MainWindowViewModel(ITicketService ticketService)
@@ -16,5 +15,5 @@ public partial class MainWindowViewModel : ViewModelBase
     }
 
     public TicketViewModel SelectedTicketViewModel { get; }
-    */
+    
 }

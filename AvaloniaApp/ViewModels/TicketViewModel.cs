@@ -5,41 +5,68 @@ using CommunityToolkit.Mvvm.Input;
 using AirlinesSystem.Interfaces;
 using AirlinesSystem.Modules;
 using AirlinesSystem.Services;
+using Avalonia.Controls;
 
 namespace AvaloniaApp.ViewModels
 {
     public class TicketViewModel : ObservableObject
     {
+        public IAsyncRelayCommand SaveCommand { get; }
         private readonly ITicketService _ticketService;
-        private Ticket? _ticket;
+        private Ticket? _ticket = new Ticket(
+            "A000",
+            "B000",
+            "",
+            "",
+            "",
+            (decimal)10000,
+            DateTime.Now,
+            "",
+            "",
+            DateTime.MinValue,
+            "",
+            "C100",
+            "Anna"
+        );
 
-        // Конструктор для инициализации сервиса билетов и команды
+        public Ticket? InputTicket
+        {
+            get => _ticket;
+            set => SetProperty(ref _ticket, value);
+        }
+
         public TicketViewModel(ITicketService ticketService)
         {
             _ticketService = ticketService ?? throw new ArgumentNullException(nameof(ticketService));
             SaveCommand = new AsyncRelayCommand(SaveChangesAsync);
         }
 
-        // Свойство для работы с моделью Ticket
-        public Ticket? Ticket
-        {
-            get => _ticket;
-            set => SetProperty(ref _ticket, value);
-        }
 
-        // Команда для сохранения изменений
-        public IAsyncRelayCommand SaveCommand { get; }
-
-        // Асинхронный метод для сохранения изменений
         private async Task SaveChangesAsync()
         {
-            if (Ticket != null)
+            if (InputTicket != null)
             {
-                await _ticketService.AddTicketAsync(Ticket);
-                // Дополнительная логика, например, уведомление пользователя
+                Ticket FormattedTicket = new Ticket
+                (
+                   InputTicket.TicketId,
+                   InputTicket.FlightCrewId,
+                   InputTicket.PassengerName,
+                   InputTicket.SeatNumber,
+                   InputTicket.Class,
+                   InputTicket.Price,
+                   InputTicket.PurchaseDate,
+                   InputTicket.PassengerPassportSeries,
+                   InputTicket.PassengerPassportNumber,
+                   InputTicket.PassportIssueDate,
+                   InputTicket.PassportIssuer,
+                   InputTicket.CashierId,
+                   InputTicket.CashierName
+                );
+
+                await _ticketService.AddTicketAsync(FormattedTicket);
                 Console.WriteLine("Ticket saved");
             }
-            else 
+            else
             {
                 Console.WriteLine("Ticket was null, nothing saved");
             }

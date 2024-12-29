@@ -15,7 +15,6 @@ public class Ticket : ITicket
     public DateTime PurchaseDate { get; set; }
     public string PassengerPassportSeries { get; set; } = "Undefined";
     public string PassengerPassportNumber { get; set; } = "Undefined";
-    public DateTime PassportIssueDate { get; set; }
     public string PassportIssuer { get; set; } = "Undefined";
     public string CashierId { get; } = "Undefined";
     public string CashierName { get; set; } = "Undefined";
@@ -23,7 +22,7 @@ public class Ticket : ITicket
     [JsonConstructor]
     public Ticket(string TicketId, string FlightCrewId, string RouteId, string PassengerName, 
     string SeatNumber, string Class, decimal Price, DateTime PurchaseDate, string PassengerPassportSeries, 
-    string PassengerPassportNumber, DateTime PassportIssueDate, string PassportIssuer, string CashierId, 
+    string PassengerPassportNumber,  string PassportIssuer, string CashierId, 
     string CashierName)
     {
         this.TicketId = TicketId;
@@ -36,7 +35,6 @@ public class Ticket : ITicket
         this.PurchaseDate = PurchaseDate;
         this.PassengerPassportSeries= PassengerPassportSeries;
         this.PassengerPassportNumber = PassengerPassportNumber;
-        this.PassportIssueDate = PassportIssueDate;
         this.PassportIssuer = PassportIssuer;
         this.CashierId = CashierId;
         this.CashierName = CashierName;

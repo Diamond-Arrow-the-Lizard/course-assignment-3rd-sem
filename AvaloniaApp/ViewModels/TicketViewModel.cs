@@ -24,7 +24,6 @@ namespace AvaloniaApp.ViewModels
             DateTime.Now,
             "",
             "",
-            DateTime.MinValue,
             "",
             "C100",
             "Anna"
@@ -59,7 +58,6 @@ namespace AvaloniaApp.ViewModels
                    InputTicket.PurchaseDate,
                    InputTicket.PassengerPassportSeries,
                    InputTicket.PassengerPassportNumber,
-                   InputTicket.PassportIssueDate,
                    InputTicket.PassportIssuer,
                    InputTicket.CashierId,
                    InputTicket.CashierName

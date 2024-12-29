@@ -35,37 +35,31 @@ public class Program
             return;
         }
 
-        var routeService = serviceProvider.GetService<RouteService>();
-        var ticketService = serviceProvider.GetService<TicketService>();
-        var searchService = serviceProvider.GetService<SearchService>();
+        var routeService = serviceProvider.GetService<IRouteService>();
+        var ticketService = serviceProvider.GetService<ITicketService>();
+        var searchService = serviceProvider.GetService<ISearchService>();
 
-        var aircrafts = await aircraftService.GetAllAircraftsAsync();
-        foreach (var aircraft in aircrafts)
-            Console.WriteLine(aircraft.Type + aircraft.AircraftId);
-
-        try
-        {
-            var myAircraft = await aircraftService.GetAircraftByIdAsync("12345");
-
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
-        }
-
-        var newAircraft = new Aircraft
+        var newRoute = new Route
         (
-            "12350",
-            "Boeing 747",
-            "779",
-            DateTime.Now,
-            DateTime.UtcNow,
-            "Undefined"
+            "A1080",
+            "Moscow",
+            DateTime.Today,
+            "Magadan",
+            new DateTime(2024, 12, 31),
+            "12347",
+            [],
+            [DayOfWeek.Sunday, DayOfWeek.Monday, DayOfWeek.Tuesday]
         );
 
-
-        await aircraftService.AddAircraftAsync(newAircraft);
-        await aircraftService.RemoveAircraftAsync("12348");
+        if (routeService != null)
+        {
+            await routeService.AddRouteAsync(newRoute);
+            var routeCopy = await routeService.GetRouteByIdAsync("A1080");
+            Console.WriteLine(routeCopy.RouteId);
+        }
+        if (aircraftService != null) {
+            Console.WriteLine((await aircraftService.GetAircraftByIdAsync("12347")).Type);
+        }
 
     }
 

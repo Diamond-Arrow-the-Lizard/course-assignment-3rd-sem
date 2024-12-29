@@ -2,9 +2,9 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using AirlinesSystem.Modules;
 using AirlinesSystem.Interfaces;
-using AirlinesSystem.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.Linq;
 using System;
 
 namespace AvaloniaApp.ViewModels
@@ -13,8 +13,14 @@ namespace AvaloniaApp.ViewModels
     {
         private readonly IRouteService _routeService;
         private Route? _selectedRoute;
+        private ObservableCollection<Route> _routes;
 
-        public ObservableCollection<Route> Routes { get; } = new();  // изменили на Route
+        public ObservableCollection<Route> Routes
+        {
+            get => _routes;
+            set => SetProperty(ref _routes, value);
+        }
+
         public Route? SelectedRoute
         {
             get => _selectedRoute;
@@ -27,17 +33,26 @@ namespace AvaloniaApp.ViewModels
         public RouteViewModel(IRouteService routeService)
         {
             _routeService = routeService ?? throw new ArgumentNullException(nameof(routeService));
+            _routes = new ObservableCollection<Route>();
+
             LoadRoutesCommand = new AsyncRelayCommand(LoadRoutesAsync);
             SelectRouteCommand = new AsyncRelayCommand(SelectRouteAsync);
+
+            LoadRoutesCommand.ExecuteAsync(null);
+            SelectRouteCommand.ExecuteAsync(null);
         }
 
         private async Task LoadRoutesAsync()
         {
-            var routes = await _routeService.GetAllRoutesAsync();
-            Routes.Clear();
-            foreach (var route in routes)
+            try
             {
-                Routes.Add((Route)route);  // Приведение к Route
+                var routes = await _routeService.GetAllRoutesAsync();
+                Routes = new ObservableCollection<Route>(
+                    routes.Cast<Route>()); 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading routes: {ex.Message}");
             }
         }
 
@@ -45,8 +60,8 @@ namespace AvaloniaApp.ViewModels
         {
             if (SelectedRoute != null)
             {
-                // Логика перехода к TicketView
-                Console.WriteLine($"Route selected: {SelectedRoute.RouteId}");
+                await Task.Delay(100); 
+                Console.WriteLine($"Selected route: {SelectedRoute.RouteId}");
             }
         }
     }

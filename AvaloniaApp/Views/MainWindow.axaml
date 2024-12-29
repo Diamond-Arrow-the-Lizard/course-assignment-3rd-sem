@@ -17,9 +17,9 @@
 
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Navigation">
-                <MenuItem Header="Route View" Command="{Binding ShowRouteViewCommand}" />
-                <MenuItem Header="Ticket List" Command="{Binding ShowTicketListViewCommand}" />
+            <MenuItem Header="Меню">
+                <MenuItem Header="Список Рейсов" Command="{Binding ShowRouteViewCommand}" />
+                <MenuItem Header="Мои Билеты" Command="{Binding ShowTicketListViewCommand}" />
             </MenuItem>
         </Menu>
 

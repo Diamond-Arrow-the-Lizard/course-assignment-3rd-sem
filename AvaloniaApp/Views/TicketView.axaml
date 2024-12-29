@@ -13,6 +13,10 @@
             <TextBlock Text="{Binding InputTicket.TicketId}" VerticalAlignment="Center"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Route ID:" Width="150" VerticalAlignment="Center"/>
+            <TextBlock Text="{Binding InputTicket.RouteId}" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
             <TextBlock Text="Passenger Name:" Width="150" VerticalAlignment="Center"/>
             <TextBox Text="{Binding InputTicket.PassengerName}" Width="200"/>
         </StackPanel>

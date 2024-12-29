@@ -4,6 +4,7 @@ public interface ITicket
 {
     string TicketId { get; } 
     string FlightCrewId { get; } 
+    string RouteId { get; }
     string PassengerName { get; set; }
     string SeatNumber { get; set; }
     string Class { get; set; }

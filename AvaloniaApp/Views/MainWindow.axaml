@@ -18,8 +18,8 @@
 
     <StackPanel Spacing="10">
         <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <!--views:TicketView DataContext="{Binding SelectedTicketViewModel}" /-->
-        <views:RouteView  />
+        <views:TicketView DataContext="{Binding SelectedTicketViewModel}" />
+        <!--views:RouteView  /-->
     </StackPanel>
 
 </Window>

@@ -9,7 +9,6 @@ namespace AvaloniaApp.ViewModels
     public class AircraftInfoViewModel : ObservableObject
     {
         private readonly IAircraftService _aircraftService;
-
         private Aircraft? _aircraft;
         public Aircraft? Aircraft
         {
@@ -35,7 +34,6 @@ namespace AvaloniaApp.ViewModels
                     Console.WriteLine("Aircraft not found or incorrect type.");
                     return;
                 }
-
                 Aircraft = aircraft;
             }
             catch (Exception ex)

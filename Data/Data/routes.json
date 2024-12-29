@@ -5,7 +5,7 @@
         "DepartureTime": "2024-12-29T10:00:00",
         "Arrival": "Сочи",
         "ArrivalTime": "2024-12-29T12:30:00",
-        "AircraftId": "A300",
+        "AircraftId": "A1001",
         "Stopovers": [
             "Калуга",
             "Краснодар"
@@ -17,7 +17,7 @@
         "DepartureTime": "2024-12-29T15:00:00",
         "Arrival": "Нижний Новгород",
         "ArrivalTime": "2024-12-29T17:00:00",
-        "AircraftId": "B777",
+        "AircraftId": "B2002",
         "Stopovers": [
             "Тула"
         ]
@@ -28,7 +28,7 @@
         "DepartureTime": "2024-12-30T08:00:00",
         "Arrival": "Петропавловск-Камчатский",
         "ArrivalTime": "2024-12-30T12:00:00",
-        "AircraftId": "A320",
+        "AircraftId": "C3003",
         "Stopovers": [
             "Якутск"
         ]

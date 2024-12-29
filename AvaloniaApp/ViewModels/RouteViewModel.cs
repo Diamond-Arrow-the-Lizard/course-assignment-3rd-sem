@@ -73,7 +73,7 @@ namespace AvaloniaApp.ViewModels
                 ticketViewModel.InputTicket = new Ticket
                 (
                     RandomIDGen.GenerateID(5),
-                    RandomIDGen.GenerateID(5),
+                    SelectedRoute.AircraftId,
                     SelectedRoute.RouteId,
                     "",
                     "",

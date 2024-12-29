@@ -7,6 +7,7 @@ public class Ticket : ITicket
 {
     public string TicketId { get; } = "Undefined";
     public string FlightCrewId { get; } = "Undefined";
+    public string RouteId { get; } = "Undefined";
     public string PassengerName { get; set; } = "Undefined";
     public string SeatNumber { get; set; } = "Undefined";
     public string Class { get; set; } = "Undefined";
@@ -20,13 +21,14 @@ public class Ticket : ITicket
     public string CashierName { get; set; } = "Undefined";
 
     [JsonConstructor]
-    public Ticket(string TicketId, string FlightCrewId, string PassengerName, 
+    public Ticket(string TicketId, string FlightCrewId, string RouteId, string PassengerName, 
     string SeatNumber, string Class, decimal Price, DateTime PurchaseDate, string PassengerPassportSeries, 
     string PassengerPassportNumber, DateTime PassportIssueDate, string PassportIssuer, string CashierId, 
     string CashierName)
     {
         this.TicketId = TicketId;
         this.FlightCrewId= FlightCrewId;
+        this.RouteId = RouteId;
         this.PassengerName= PassengerName;
         this.SeatNumber = SeatNumber;
         this.Class = Class;

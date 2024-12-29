@@ -16,6 +16,7 @@ namespace AvaloniaApp.ViewModels
         private Ticket? _ticket = new Ticket(
             "A000",
             "B000",
+            "123",
             "",
             "",
             "",
@@ -50,6 +51,7 @@ namespace AvaloniaApp.ViewModels
                 (
                    InputTicket.TicketId,
                    InputTicket.FlightCrewId,
+                   InputTicket.RouteId,
                    InputTicket.PassengerName,
                    InputTicket.SeatNumber,
                    InputTicket.Class,

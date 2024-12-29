@@ -55,6 +55,6 @@
             <TextBlock Text="Ф.И.О. кассира" Width="150" VerticalAlignment="Center"/>
             <TextBlock Text="{Binding InputTicket.CashierName}" VerticalAlignment="Center"/>
         </StackPanel>
-        <Button Name="Saver" Content="Save Changes" Command="{Binding SaveCommand}" HorizontalAlignment="Right"/>
+        <Button Name="Saver" Content="Сохранить Билет" Command="{Binding SaveCommand}" HorizontalAlignment="Right"/>
     </StackPanel>
 </UserControl>

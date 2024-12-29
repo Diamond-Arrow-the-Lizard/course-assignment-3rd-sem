@@ -3,7 +3,7 @@ namespace AirlinesSystem.Interfaces;
 public interface ITicket
 {
     string TicketId { get; } 
-    string FlightCrewId { get; } 
+    string AircraftId { get; } 
     string RouteId { get; }
     string PassengerName { get; set; }
     string SeatNumber { get; set; }

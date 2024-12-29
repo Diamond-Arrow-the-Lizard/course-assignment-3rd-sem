@@ -1,22 +1,35 @@
-using CommunityToolkit.Mvvm.ComponentModel;
-using AirlinesSystem.Modules;
-using AirlinesSystem.Interfaces;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using System;
+using AirlinesSystem.Modules;
+using AirlinesSystem.Interfaces;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System.Linq;
+using System;
+using Avalonia.Controls;
+using Microsoft.Extensions.DependencyInjection;
+using AvaloniaApp.Views;
 
 namespace AvaloniaApp.ViewModels
 {
     public class TicketListViewModel : ObservableObject
     {
         private readonly ITicketService _ticketService;
+        private readonly IServiceProvider _serviceProvider;
 
         public ObservableCollection<Ticket> Tickets { get; set; } = new ObservableCollection<Ticket>();
 
-        public TicketListViewModel(ITicketService ticketService)
+        public Ticket? SelectedTicket { get; set; }
+
+        // Команда для открытия информации о самолёте
+        public IAsyncRelayCommand ShowAircraftInfoCommand { get; }
+
+        public TicketListViewModel(ITicketService ticketService, IServiceProvider serviceProvider)
         {
             _ticketService = ticketService ?? throw new ArgumentNullException(nameof(ticketService));
+            _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
+
+            ShowAircraftInfoCommand = new AsyncRelayCommand(OpenAircraftInfoWindow);
             LoadTickets();
         }
 
@@ -30,5 +43,27 @@ namespace AvaloniaApp.ViewModels
             }
         }
 
+        private async Task OpenAircraftInfoWindow()
+        {
+            if (SelectedTicket == null) return;
+
+            var aircraftInfoViewModel = _serviceProvider.GetRequiredService<AircraftInfoViewModel>();
+            aircraftInfoViewModel.LoadAircraftInfo(SelectedTicket.AircraftId);
+
+            var aircraftInfoView = new AircraftInfoView
+            {
+                DataContext = aircraftInfoViewModel
+            };
+
+            var window = new Window
+            {
+                Content = aircraftInfoView,
+                Title = "Информация о самолёте",
+                Width = 800,
+                Height = 600
+            };
+
+            window.Show();
+        }
     }
 }

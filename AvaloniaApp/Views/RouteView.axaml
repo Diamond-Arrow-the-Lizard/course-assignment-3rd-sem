@@ -33,6 +33,6 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Button Content="Select Route" Command="{Binding SelectRouteCommand}" HorizontalAlignment="Center" />
+        <Button Content="Выбрать рейс" Command="{Binding SelectRouteCommand}" HorizontalAlignment="Center" />
     </StackPanel>
 </UserControl>

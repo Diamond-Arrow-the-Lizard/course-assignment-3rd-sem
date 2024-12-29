@@ -15,9 +15,14 @@
                         <TextBlock Text="{Binding TicketId}" />
                         <TextBlock Text="{Binding PassengerName}" />
                         <TextBlock Text="{Binding Price}" />
+                        <!-- Кнопка для отображения информации о самолёте -->
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+            <Button Content="Информация о самолёте"
+                    Command="{Binding ShowAircraftInfoCommand}"
+                    HorizontalAlignment="Center"/>
     </StackPanel>
 </UserControl>

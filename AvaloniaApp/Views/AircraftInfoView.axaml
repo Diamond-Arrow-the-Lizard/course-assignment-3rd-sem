@@ -6,19 +6,19 @@
     <StackPanel Margin="10" Spacing="10">
         <TextBlock Text="Информация о самолёте" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="ID Самолёта:" Width="150" VerticalAlignment="Center"/>
+            <TextBlock Text="ID Самолёта:"  VerticalAlignment="Center"/>
             <TextBlock Text="{Binding Aircraft.AircraftId}" VerticalAlignment="Center"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Модель:" Width="150" VerticalAlignment="Center"/>
+            <TextBlock Text="Модель:"  VerticalAlignment="Center"/>
             <TextBlock Text="{Binding Aircraft.Type}" VerticalAlignment="Center"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Регистрационный номер:" Width="150" VerticalAlignment="Center"/>
+            <TextBlock Text="Регистрационный номер:"  VerticalAlignment="Center"/>
             <TextBlock Text="{Binding Aircraft.RegistrationNumber}" VerticalAlignment="Center"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Год выпуска:" Width="150" VerticalAlignment="Center"/>
+            <TextBlock Text="Год выпуска:"  VerticalAlignment="Center"/>
             <TextBlock Text="{Binding Aircraft.YearOfManufacture}" VerticalAlignment="Center"/>
         </StackPanel>
         <!-- Дополнительные поля, если нужно -->

@@ -5,7 +5,7 @@
         "RouteId": "Z5X9Y",
         "PassengerName": "\u0413\u043E\u0439\u0434\u0430 \u0415\u0432\u043F\u0441\u0438\u0445\u0438\u0439 \u0410\u0444\u0440\u0438\u043A\u0430\u043D\u043E\u0432\u0438\u0447 ",
         "SeatNumber": "A1",
-        "Class": "Avalonia.Controls.ComboBoxItem",
+        "Class": "Бизнес-класс",
         "Price": 10000,
         "PurchaseDate": "2024-12-30T00:10:01.8848995+07:00",
         "PassengerPassportSeries": "12 13",

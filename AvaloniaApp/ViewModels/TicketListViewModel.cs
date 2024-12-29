@@ -45,10 +45,11 @@ namespace AvaloniaApp.ViewModels
 
         private async Task OpenAircraftInfoWindow()
         {
+            await Task.Delay(0);
             if (SelectedTicket == null) return;
 
             var aircraftInfoViewModel = _serviceProvider.GetRequiredService<AircraftInfoViewModel>();
-            aircraftInfoViewModel.LoadAircraftInfo(SelectedTicket.AircraftId);
+            await aircraftInfoViewModel.LoadAircraftInfoAsync(SelectedTicket.AircraftId);
 
             var aircraftInfoView = new AircraftInfoView
             {

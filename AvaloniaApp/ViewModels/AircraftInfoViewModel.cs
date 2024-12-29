@@ -2,6 +2,7 @@ using AirlinesSystem.Interfaces;
 using AirlinesSystem.Modules;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System;
+using System.Threading.Tasks;
 
 namespace AvaloniaApp.ViewModels
 {
@@ -21,10 +22,26 @@ namespace AvaloniaApp.ViewModels
             _aircraftService = aircraftService ?? throw new ArgumentNullException(nameof(aircraftService));
         }
 
-        public async void LoadAircraftInfo(string aircraftId)
+        public async Task LoadAircraftInfoAsync(string aircraftId)
         {
             if (string.IsNullOrEmpty(aircraftId)) return;
-            Aircraft = (Aircraft)await _aircraftService.GetAircraftByIdAsync(aircraftId);
+
+            try
+            {
+                var aircraftInterface = await _aircraftService.GetAircraftByIdAsync(aircraftId);
+
+                if (aircraftInterface is not Aircraft aircraft)
+                {
+                    Console.WriteLine("Aircraft not found or incorrect type.");
+                    return;
+                }
+
+                Aircraft = aircraft;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading aircraft info: {ex.Message}");
+            }
         }
     }
 }

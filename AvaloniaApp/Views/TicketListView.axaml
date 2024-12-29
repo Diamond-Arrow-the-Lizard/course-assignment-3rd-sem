@@ -8,21 +8,21 @@
              x:DataType="vm:TicketListViewModel">
     <StackPanel Margin="10" Spacing="10">
         <TextBlock Text="Мои Билеты" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
-        <ListBox ItemsSource="{Binding Tickets}">
+        <ListBox ItemsSource="{Binding Tickets}"
+                 SelectedItem="{Binding SelectedTicket, Mode=TwoWay}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock Text="{Binding TicketId}" />
                         <TextBlock Text="{Binding PassengerName}" />
                         <TextBlock Text="{Binding Price}" />
-                        <!-- Кнопка для отображения информации о самолёте -->
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-
-            <Button Content="Информация о самолёте"
-                    Command="{Binding ShowAircraftInfoCommand}"
-                    HorizontalAlignment="Center"/>
+        <Button Content="Информация о самолёте"
+                Command="{Binding ShowAircraftInfoCommand}"
+                HorizontalAlignment="Center"/>
     </StackPanel>
 </UserControl>
+

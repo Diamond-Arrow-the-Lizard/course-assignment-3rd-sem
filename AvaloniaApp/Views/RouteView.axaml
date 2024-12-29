@@ -15,8 +15,19 @@
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="modules:Route">
                     <StackPanel>
-                        <TextBlock Text="{Binding Departure}" />
-                        <TextBlock Text="{Binding Arrival}" />
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="Route: {0} - {1}">
+                                    <Binding Path="Departure" />
+                                    <Binding Path="Arrival" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+
+                        <TextBlock Text="{Binding DepartureTime, StringFormat='Departure Time: {0:HH:mm}'}"/>
+                        <TextBlock Text="{Binding ArrivalTime, StringFormat='Arrival Time: {0:HH:mm}'}"/>
+                        
+                        <TextBlock Text="{Binding RouteId, StringFormat='ID рейса: {0}'}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -25,4 +36,3 @@
         <Button Content="Select Route" Command="{Binding SelectRouteCommand}" HorizontalAlignment="Center" />
     </StackPanel>
 </UserControl>
-

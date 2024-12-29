@@ -9,6 +9,7 @@ using System;
 using Avalonia.Controls;
 using Microsoft.Extensions.DependencyInjection;
 using AvaloniaApp.Views;
+using AirlinesSystem.Utilities;
 
 namespace AvaloniaApp.ViewModels
 {
@@ -71,8 +72,8 @@ namespace AvaloniaApp.ViewModels
 
                 ticketViewModel.InputTicket = new Ticket
                 (
-                    "A100",
-                    "B100",
+                    RandomIDGen.GenerateID(5),
+                    RandomIDGen.GenerateID(5),
                     SelectedRoute.RouteId,
                     "",
                     "",
@@ -82,8 +83,8 @@ namespace AvaloniaApp.ViewModels
                     "",
                     "",
                     "",
-                    "C101",
-                    "Anna"
+                    "C1A12",
+                    "Иванова Жанна Ивановна"
                 );
 
                 // Переход на TicketView

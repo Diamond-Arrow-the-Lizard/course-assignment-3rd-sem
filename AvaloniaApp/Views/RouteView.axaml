@@ -9,7 +9,7 @@
              x:DataType="vm:RouteViewModel">
 
     <StackPanel Margin="10" Spacing="10">
-        <TextBlock Text="Available Routes" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <TextBlock Text="Доступные Рейсы" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
         
         <ListBox ItemsSource="{Binding Routes}" SelectedItem="{Binding SelectedRoute}" Margin="10">
             <ListBox.ItemTemplate>
@@ -17,15 +17,15 @@
                     <StackPanel>
                         <TextBlock>
                             <TextBlock.Text>
-                                <MultiBinding StringFormat="Route: {0} - {1}">
+                                <MultiBinding StringFormat="Рейс: {0} - {1}">
                                     <Binding Path="Departure" />
                                     <Binding Path="Arrival" />
                                 </MultiBinding>
                             </TextBlock.Text>
                         </TextBlock>
 
-                        <TextBlock Text="{Binding DepartureTime, StringFormat='Departure Time: {0:HH:mm}'}"/>
-                        <TextBlock Text="{Binding ArrivalTime, StringFormat='Arrival Time: {0:HH:mm}'}"/>
+                        <TextBlock Text="{Binding DepartureTime, StringFormat='Время вылета: {0:HH:mm}'}"/>
+                        <TextBlock Text="{Binding ArrivalTime, StringFormat='Время прилёта: {0:HH:mm}'}"/>
                         
                         <TextBlock Text="{Binding RouteId, StringFormat='ID рейса: {0}'}"/>
                     </StackPanel>

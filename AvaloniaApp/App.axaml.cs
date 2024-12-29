@@ -76,5 +76,7 @@ public partial class App : Application
         services.AddSingleton<TicketViewModel>();
         services.AddSingleton<RouteView>();
         services.AddSingleton<RouteViewModel>();
+        services.AddSingleton<TicketListView>();
+        services.AddSingleton<TicketListViewModel>();
     }
 }

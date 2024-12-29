@@ -6,12 +6,16 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Linq;
 using System;
+using Avalonia.Controls;
+using Microsoft.Extensions.DependencyInjection;
+using AvaloniaApp.Views;
 
 namespace AvaloniaApp.ViewModels
 {
     public class RouteViewModel : ObservableObject
     {
         private readonly IRouteService _routeService;
+        private readonly IServiceProvider _serviceProvider; 
         private Route? _selectedRoute;
         private ObservableCollection<Route> _routes;
 
@@ -30,16 +34,16 @@ namespace AvaloniaApp.ViewModels
         public IAsyncRelayCommand LoadRoutesCommand { get; }
         public IAsyncRelayCommand SelectRouteCommand { get; }
 
-        public RouteViewModel(IRouteService routeService)
+        public RouteViewModel(IRouteService routeService, IServiceProvider serviceProvider)
         {
             _routeService = routeService ?? throw new ArgumentNullException(nameof(routeService));
+            _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
             _routes = new ObservableCollection<Route>();
 
             LoadRoutesCommand = new AsyncRelayCommand(LoadRoutesAsync);
             SelectRouteCommand = new AsyncRelayCommand(SelectRouteAsync);
 
             LoadRoutesCommand.ExecuteAsync(null);
-            SelectRouteCommand.ExecuteAsync(null);
         }
 
         private async Task LoadRoutesAsync()
@@ -47,8 +51,7 @@ namespace AvaloniaApp.ViewModels
             try
             {
                 var routes = await _routeService.GetAllRoutesAsync();
-                Routes = new ObservableCollection<Route>(
-                    routes.Cast<Route>()); 
+                Routes = new ObservableCollection<Route>(routes.Cast<Route>());
             }
             catch (Exception ex)
             {
@@ -58,10 +61,35 @@ namespace AvaloniaApp.ViewModels
 
         private async Task SelectRouteAsync()
         {
+            await Task.Delay(0);
             if (SelectedRoute != null)
             {
-                await Task.Delay(100); 
                 Console.WriteLine($"Selected route: {SelectedRoute.RouteId}");
+
+                // Используем DI для создания экземпляра TicketViewModel
+                var ticketViewModel = _serviceProvider.GetRequiredService<TicketViewModel>();
+
+                ticketViewModel.InputTicket = new Ticket
+                (
+                    "A100",
+                    "B100",
+                    SelectedRoute.RouteId,
+                    "",
+                    "",
+                    "",
+                    (decimal)10000,
+                    DateTime.Now,
+                    "",
+                    "",
+                    "",
+                    "C101",
+                    "Anna"
+                );
+
+                // Переход на TicketView
+                var ticketView = new TicketView { DataContext = ticketViewModel };
+                var window = new Window { Content = ticketView };
+                window.Show();
             }
         }
     }

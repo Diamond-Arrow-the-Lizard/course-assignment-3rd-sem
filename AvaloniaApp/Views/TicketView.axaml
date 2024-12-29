@@ -9,43 +9,50 @@
     <StackPanel Margin="10" Spacing="10">
         <TextBlock Text="Ticket Information" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Ticket ID:" Width="150" VerticalAlignment="Center"/>
+            <TextBlock Text="ID Билета:" Width="150" VerticalAlignment="Center"/>
             <TextBlock Text="{Binding InputTicket.TicketId}" VerticalAlignment="Center"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Route ID:" Width="150" VerticalAlignment="Center"/>
+            <TextBlock Text="ID Рейса:" Width="150" VerticalAlignment="Center"/>
             <TextBlock Text="{Binding InputTicket.RouteId}" VerticalAlignment="Center"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Passenger Name:" Width="150" VerticalAlignment="Center"/>
+            <TextBlock Text="Ф.И.О пассажира:" Width="150" VerticalAlignment="Center"/>
             <TextBox Text="{Binding InputTicket.PassengerName}" Width="200"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Seat Number:" Width="150" VerticalAlignment="Center"/>
+            <TextBlock Text="Место" Width="150" VerticalAlignment="Center"/>
             <TextBox Text="{Binding InputTicket.SeatNumber}" Width="200"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Class:" Width="150" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding InputTicket.Class}" Width="200"/>
+            <TextBlock Text="Класс:" Width="150" VerticalAlignment="Center"/>
+            <ComboBox SelectedItem="{Binding InputTicket.Class}" Width="200">
+                <ComboBoxItem Content="Бизнес-класс" />
+                <ComboBoxItem Content="Эконом-класс" />
+            </ComboBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Passport series:" Width="150" VerticalAlignment="Center"/>
+            <TextBlock Text="Серия паспорта:" Width="150" VerticalAlignment="Center"/>
             <TextBox Text="{Binding InputTicket.PassengerPassportSeries}" Width="200"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Passport number:" Width="150" VerticalAlignment="Center"/>
+            <TextBlock Text="Номер паспорта" Width="150" VerticalAlignment="Center"/>
             <TextBox Text="{Binding InputTicket.PassengerPassportNumber}" Width="200"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Price:" Width="150" VerticalAlignment="Center"/>
+            <TextBlock Text="Когда и кем выдан:" Width="150" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding InputTicket.PassengerPassportNumber}" Width="200"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Цена билета:" Width="150" VerticalAlignment="Center"/>
             <TextBlock Text="{Binding InputTicket.Price, StringFormat=N2}" Width="200"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Cashier ID:" Width="150" VerticalAlignment="Center"/>
+            <TextBlock Text="ID кассира:" Width="150" VerticalAlignment="Center"/>
             <TextBlock Text="{Binding InputTicket.CashierId}" VerticalAlignment="Center"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Cashier Name:" Width="150" VerticalAlignment="Center"/>
+            <TextBlock Text="Ф.И.О. кассира" Width="150" VerticalAlignment="Center"/>
             <TextBlock Text="{Binding InputTicket.CashierName}" VerticalAlignment="Center"/>
         </StackPanel>
         <Button Name="Saver" Content="Save Changes" Command="{Binding SaveCommand}" HorizontalAlignment="Right"/>

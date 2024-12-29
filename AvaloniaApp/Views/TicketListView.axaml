@@ -13,7 +13,20 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding TicketId}" />
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="ID Рейса: {0}">
+                                    <Binding Path="RouteId" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="ID Билета: {0}">
+                                    <Binding Path="TicketId" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
                         <TextBlock Text="{Binding PassengerName}" />
                         <TextBlock Text="{Binding Price}" />
                     </StackPanel>

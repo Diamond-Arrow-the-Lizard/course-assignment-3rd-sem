@@ -1,26 +1,29 @@
 [
-    {
-        "AircraftId": "12347",
-        "Type": "Boeing 747",
-        "RegistrationNumber": "1",
-        "YearOfManufacture": "2010-04-01T00:00:00",
-        "LastMaintenance": "2020-01-01T00:00:00",
-        "PhotoPath": "None"
-    },
-    {
-        "AircraftId": "12349",
-        "Type": "Boeing 747",
-        "RegistrationNumber": "1",
-        "YearOfManufacture": "2010-01-01T00:00:00",
-        "LastMaintenance": "2020-01-01T00:00:00",
-        "PhotoPath": "None"
-    },
-    {
-        "AircraftId": "12350",
-        "Type": "Boeing 747",
-        "RegistrationNumber": "779",
-        "YearOfManufacture": "2020-12-24T01:16:54.3049338+07:00",
-        "LastMaintenance": "2024-12-23T18:16:54.3050481Z",
-        "PhotoPath": "Undefined"
-    }
+  {
+    "AircraftId": "A1001",
+    "FlightCrewId": "F1G2H",
+    "Type": "Boeing 737",
+    "RegistrationNumber": "R12345",
+    "YearOfManufacture": "2015-06-15T00:00:00",
+    "LastMaintenance": "2024-12-01T00:00:00",
+    "PhotoPath": ""
+  },
+  {
+    "AircraftId": "B2002",
+    "FlightCrewId": "I3J4K",
+    "Type": "Airbus A320",
+    "RegistrationNumber": "R67890",
+    "YearOfManufacture": "2018-04-10T00:00:00",
+    "LastMaintenance": "2024-11-10T00:00:00",
+    "PhotoPath": ""
+  },
+  {
+    "AircraftId": "C3003",
+    "FlightCrewId": "L5M6N",
+    "Type": "Boeing 777",
+    "RegistrationNumber": "R11223",
+    "YearOfManufacture": "2010-03-20T00:00:00",
+    "LastMaintenance": "2024-10-15T00:00:00",
+    "PhotoPath": ""
+  }
 ]

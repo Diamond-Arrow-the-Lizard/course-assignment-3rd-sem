@@ -1,0 +1,26 @@
+[
+  {
+    "CrewMemberId": "A1B2C",
+    "Name": "Иван Иванов"
+  },
+  {
+    "CrewMemberId": "D3F4G",
+    "Name": "Анна Петрова"
+  },
+  {
+    "CrewMemberId": "Z5X9Y",
+    "Name": "Олег Смирнов"
+  },
+  {
+    "CrewMemberId": "M7N8P",
+    "Name": "Мария Кузнецова"
+  },
+  {
+    "CrewMemberId": "Q2R3S",
+    "Name": "Сергей Васильев"
+  },
+  {
+    "CrewMemberId": "T9U0V",
+    "Name": "Екатерина Попова"
+  }
+]

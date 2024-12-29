@@ -1,43 +1,36 @@
 [
     {
-        "RouteId": "A1080",
-        "Departure": "Moscow",
-        "DepartureTime": "2024-12-29T00:00:00+07:00",
-        "Arrival": "Magadan",
-        "ArrivalTime": "2024-12-31T00:00:00",
-        "AircraftId": "12347",
-        "Stopovers": [],
-        "DaysOfDeparture": [
-            0,
-            1,
-            2
+        "RouteId": "A1B2C",
+        "Departure": "Москва",
+        "DepartureTime": "2024-12-29T10:00:00",
+        "Arrival": "Сочи",
+        "ArrivalTime": "2024-12-29T12:30:00",
+        "AircraftId": "A300",
+        "Stopovers": [
+            "Калуга",
+            "Краснодар"
         ]
     },
     {
-        "RouteId": "A1081",
-        "Departure": "Moscow",
-        "DepartureTime": "2024-11-29T00:00:00+07:00",
-        "Arrival": "Novosibirsk",
-        "ArrivalTime": "2024-11-30T00:00:00",
-        "AircraftId": "12349",
-        "Stopovers": [],
-        "DaysOfDeparture": [
-            5,
-            6
+        "RouteId": "D3F4G",
+        "Departure": "Санкт-Петербург",
+        "DepartureTime": "2024-12-29T15:00:00",
+        "Arrival": "Нижний Новгород",
+        "ArrivalTime": "2024-12-29T17:00:00",
+        "AircraftId": "B777",
+        "Stopovers": [
+            "Тула"
         ]
     },
     {
-        "RouteId": "A1083",
-        "Departure": "Moscow",
-        "DepartureTime": "2024-12-28T00:00:00+07:00",
-        "Arrival": "Magadan",
-        "ArrivalTime": "2024-12-30T00:00:00",
-        "AircraftId": "12347",
-        "Stopovers": [],
-        "DaysOfDeparture": [
-            7,
-            0,
-            1
+        "RouteId": "Z5X9Y",
+        "Departure": "Новосибирск",
+        "DepartureTime": "2024-12-30T08:00:00",
+        "Arrival": "Петропавловск-Камчатский",
+        "ArrivalTime": "2024-12-30T12:00:00",
+        "AircraftId": "A320",
+        "Stopovers": [
+            "Якутск"
         ]
     }
 ]

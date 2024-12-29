@@ -9,5 +9,4 @@ public interface IRoute
     DateTime ArrivalTime { get; set; }
     string AircraftId { get; }
     IEnumerable<string> Stopovers { get; set; }
-    List<DayOfWeek> DaysOfDeparture { get; set; }
 }

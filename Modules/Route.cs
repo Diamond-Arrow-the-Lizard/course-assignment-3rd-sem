@@ -12,12 +12,11 @@ public class Route : IRoute
     public DateTime ArrivalTime { get; set; }
     public string AircraftId { get; } = "Undefined";
     public IEnumerable<string> Stopovers { get; set; } = [];
-    public List<DayOfWeek> DaysOfDeparture { get; set; } = [];
 
     [JsonConstructor]
     public Route(string RouteId, string Departure, DateTime DepartureTime, 
     string Arrival, DateTime ArrivalTime, string AircraftId, 
-    IEnumerable<string> Stopovers, List<DayOfWeek> DaysOfDeparture)
+    IEnumerable<string> Stopovers)
     {
         this.RouteId = RouteId;
         this.Departure = Departure;
@@ -26,7 +25,6 @@ public class Route : IRoute
         this.ArrivalTime = ArrivalTime;
         this.AircraftId = AircraftId;
         this.Stopovers = Stopovers;
-        this.DaysOfDeparture = DaysOfDeparture;
 
     }
 }

@@ -15,6 +15,7 @@ namespace AvaloniaApp.ViewModels
             get => _aircraft;
             set => SetProperty(ref _aircraft, value);
         }
+        public string? AircraftPhotoPath => Aircraft?.PhotoPath;
 
         public AircraftInfoViewModel(IAircraftService aircraftService)
         {

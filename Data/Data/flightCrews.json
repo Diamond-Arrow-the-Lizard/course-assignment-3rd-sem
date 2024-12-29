@@ -1,0 +1,41 @@
+[
+  {
+    "FlightCrewId": "F1G2H",
+    "CrewMembers": [
+      {
+        "CrewMemberId": "A1B2C",
+        "Name": "Иван Иванов"
+      },
+      {
+        "CrewMemberId": "D3F4G",
+        "Name": "Анна Петрова"
+      }
+    ]
+  },
+  {
+    "FlightCrewId": "I3J4K",
+    "CrewMembers": [
+      {
+        "CrewMemberId": "Z5X9Y",
+        "Name": "Олег Смирнов"
+      },
+      {
+        "CrewMemberId": "M7N8P",
+        "Name": "Мария Кузнецова"
+      }
+    ]
+  },
+  {
+    "FlightCrewId": "L5M6N",
+    "CrewMembers": [
+      {
+        "CrewMemberId": "Q2R3S",
+        "Name": "Сергей Васильев"
+      },
+      {
+        "CrewMemberId": "T9U0V",
+        "Name": "Екатерина Попова"
+      }
+    ]
+  }
+]

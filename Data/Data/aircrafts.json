@@ -3,7 +3,7 @@
         "AircraftId": "12347",
         "Type": "Boeing 747",
         "RegistrationNumber": "1",
-        "YearOfManufacture": "2010-01-01T00:00:00",
+        "YearOfManufacture": "2010-04-01T00:00:00",
         "LastMaintenance": "2020-01-01T00:00:00",
         "PhotoPath": "None"
     },
@@ -19,7 +19,7 @@
         "AircraftId": "12350",
         "Type": "Boeing 747",
         "RegistrationNumber": "779",
-        "YearOfManufacture": "2024-12-24T01:16:54.3049338+07:00",
+        "YearOfManufacture": "2020-12-24T01:16:54.3049338+07:00",
         "LastMaintenance": "2024-12-23T18:16:54.3050481Z",
         "PhotoPath": "Undefined"
     }

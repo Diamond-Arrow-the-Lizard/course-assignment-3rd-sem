@@ -49,7 +49,7 @@ namespace AvaloniaApp.ViewModels
                 Ticket FormattedTicket = new Ticket
                 (
                    InputTicket.TicketId,
-                   InputTicket.FlightCrewId,
+                   InputTicket.AircraftId,
                    InputTicket.RouteId,
                    InputTicket.PassengerName,
                    InputTicket.SeatNumber,

@@ -6,7 +6,7 @@ namespace AirlinesSystem.Modules;
 public class Ticket : ITicket
 {
     public string TicketId { get; } = "Undefined";
-    public string FlightCrewId { get; } = "Undefined";
+    public string AircraftId { get; } = "Undefined";
     public string RouteId { get; } = "Undefined";
     public string PassengerName { get; set; } = "Undefined";
     public string SeatNumber { get; set; } = "Undefined";
@@ -20,13 +20,13 @@ public class Ticket : ITicket
     public string CashierName { get; set; } = "Undefined";
 
     [JsonConstructor]
-    public Ticket(string TicketId, string FlightCrewId, string RouteId, string PassengerName, 
+    public Ticket(string TicketId, string AircraftId, string RouteId, string PassengerName, 
     string SeatNumber, string Class, decimal Price, DateTime PurchaseDate, string PassengerPassportSeries, 
     string PassengerPassportNumber,  string PassportIssuer, string CashierId, 
     string CashierName)
     {
         this.TicketId = TicketId;
-        this.FlightCrewId= FlightCrewId;
+        this.AircraftId = AircraftId;
         this.RouteId = RouteId;
         this.PassengerName= PassengerName;
         this.SeatNumber = SeatNumber;

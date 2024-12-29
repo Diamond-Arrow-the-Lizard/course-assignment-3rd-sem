@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:AvaloniaApp.ViewModels"
+             x:Class="AvaloniaApp.Views.AircraftInfoView"
+             x:DataType="vm:AircraftInfoViewModel">
+    <StackPanel Margin="10" Spacing="10">
+        <TextBlock Text="Информация о самолёте" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="ID Самолёта:" Width="150" VerticalAlignment="Center"/>
+            <TextBlock Text="{Binding Aircraft.AircraftId}" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Модель:" Width="150" VerticalAlignment="Center"/>
+            <TextBlock Text="{Binding Aircraft.Type}" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Регистрационный номер:" Width="150" VerticalAlignment="Center"/>
+            <TextBlock Text="{Binding Aircraft.RegistrationNumber}" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Год выпуска:" Width="150" VerticalAlignment="Center"/>
+            <TextBlock Text="{Binding Aircraft.YearOfManufacture}" VerticalAlignment="Center"/>
+        </StackPanel>
+        <!-- Дополнительные поля, если нужно -->
+    </StackPanel>
+</UserControl>

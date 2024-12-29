@@ -5,6 +5,7 @@
              x:DataType="vm:AircraftInfoViewModel">
     <StackPanel Margin="10" Spacing="10">
         <TextBlock Text="Информация о самолёте" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <Image Source="{Binding AircraftPhotoPath}" Width="300" Height="200" HorizontalAlignment="Center" Stretch="Uniform"/>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="ID Самолёта: "  VerticalAlignment="Center"/>
             <TextBlock Text="{Binding Aircraft.AircraftId}" VerticalAlignment="Center"/>
